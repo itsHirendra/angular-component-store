@@ -1,0 +1,18 @@
+<hello name="{{ name }}"></hello>
+<p>Start editing to see some magic happen :)</p>
+
+<div *ngIf="state$ | async as fc">
+  <form [formGroup]="fc.form" (ngSubmit)="submit(fc.form.value)">
+    <label for="firstName">Name</label>
+    <input type="text" formControlName="firstName" />
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<div *ngIf="formData$ | async as fd">
+  <div *ngFor="let d of fd">
+    {{ d }}
+  </div>
+</div>
+
+<button (click)="removeData()">remove</button>
